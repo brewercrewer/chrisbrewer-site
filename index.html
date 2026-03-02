@@ -4,107 +4,187 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chris Brewer — AI Governance & Defensibility</title>
-  <meta name="description" content="Operator-focused AI governance, model risk, and defensibility in regulated financial systems." />
+  <meta name="description" content="Operator-focused AI governance and defensibility for regulated systems. Practical frameworks, controls, and oversight." />
 
   <style>
-    :root { --bg:#0b0f14; --card:#101723; --text:#e8eef7; --muted:#a7b3c4; --line:#223044; }
+    :root { --bg:#0b0f14; --card:#101723; --text:#e8eef7; --muted:#a7b3c4; --line:#223044; --accent:#7aa2ff; }
     * { box-sizing:border-box; }
-    body {
+    body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--bg);
-      color: var(--text);
+      color:var(--text);
+      background:
+        radial-gradient(1100px 700px at 15% 0%, #152039 0%, var(--bg) 55%),
+        radial-gradient(800px 550px at 92% 30%, #1a2a4a 0%, var(--bg) 60%),
+        var(--bg);
     }
-    .wrap { max-width:900px; margin:0 auto; padding:70px 20px; }
-    h1 { font-size:44px; margin:0 0 10px; letter-spacing:-0.5px; }
-    h2 { font-size:18px; margin:0 0 12px; text-transform:uppercase; letter-spacing:0.15em; color:var(--muted); }
-    p { color:var(--muted); line-height:1.6; font-size:16px; margin:0 0 16px; }
-    .section { margin-top:60px; }
-    .card {
+    a{ color:inherit; }
+    .wrap{ max-width:980px; margin:0 auto; padding:56px 20px; }
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:34px;
+    }
+    .brand{ font-weight:800; letter-spacing:0.2px; }
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .chip{
+      font-size:12px; color:var(--muted);
       border:1px solid var(--line);
-      border-radius:16px;
-      padding:24px;
-      margin-top:18px;
+      padding:8px 10px;
+      border-radius:999px;
+      white-space:nowrap;
     }
-    ul { margin:0; padding-left:18px; color:var(--muted); }
-    li { margin-bottom:8px; }
-    .btn {
-      display:inline-block;
-      margin-top:18px;
-      padding:10px 14px;
-      border-radius:10px;
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media (max-width: 880px){ .hero{ grid-template-columns:1fr; } .chips{ justify-content:flex-start; } }
+
+    h1{ font-size:46px; line-height:1.03; margin:0 0 10px; letter-spacing:-0.7px; }
+    .sub{ color:var(--muted); font-size:16px; line-height:1.6; margin:0 0 14px; }
+
+    .card{
+      background:rgba(16,23,35,.72);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      backdrop-filter: blur(10px);
+    }
+    .kicker{
+      font-size:12px; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--muted); margin-bottom:10px;
+    }
+    .btnRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:12px;
       border:1px solid var(--line);
       text-decoration:none;
-      color:var(--text);
-      font-weight:600;
+      font-weight:700;
     }
-    .btn:hover { opacity:0.8; }
-    footer {
-      margin-top:80px;
-      font-size:13px;
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(122,162,255,.22), rgba(122,162,255,.08));
+      border-color: rgba(122,162,255,.45);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media (max-width: 880px){ .grid2{ grid-template-columns:1fr; } }
+
+    ul{ margin:0; padding-left:18px; color:var(--muted); }
+    li{ margin-bottom:8px; }
+
+    hr{ border:0; border-top:1px solid var(--line); margin:26px 0; }
+
+    .note{ color:var(--muted); font-size:13px; line-height:1.5; margin:0; }
+    footer{
+      margin-top:26px;
       color:var(--muted);
-      border-top:1px solid var(--line);
-      padding-top:20px;
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
     }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
   </style>
 </head>
+
 <body>
   <div class="wrap">
 
-    <h1>Chris Brewer</h1>
-    <p><strong>AI Governance & Defensibility</strong></p>
+    <div class="top">
+      <div class="brand">Chris Brewer</div>
+      <div class="chips">
+        <div class="chip">AI Governance</div>
+        <div class="chip">Defensibility</div>
+        <div class="chip">Regulated Fintech</div>
+        <div class="chip">Operator-first</div>
+      </div>
+    </div>
 
-    <p>
-      I work at the intersection of AI systems and regulated financial infrastructure.
-      My focus is practical governance — how AI models, LLMs, and decision systems operate
-      inside environments where oversight, accountability, and defensibility matter.
-    </p>
+    <div class="hero">
+      <div>
+        <div class="kicker">Practical Operator Work</div>
+        <h1>AI Governance & Defensibility</h1>
+        <p class="sub">
+          I work at the intersection of AI systems and regulated financial infrastructure.
+          My focus is practical governance: controls, documentation, oversight, and defensibility — especially where sponsor-bank scrutiny and regulatory expectations matter.
+        </p>
 
-    <a class="btn" href="mailto:youremail@example.com">Start a Conversation</a>
+        <div class="btnRow">
+          <a class="btn primary" href="mailto:chris@bestretreats.co?subject=AI%20Governance%20Intro%20%E2%80%94%20Chris%20Brewer">Email Chris</a>
+          <a class="btn" href="#work">What I’m working on</a>
+        </div>
 
-    <div class="section">
-      <h2>Current Focus</h2>
+        <div class="card" style="margin-top:18px;">
+          <div class="kicker">The lens</div>
+          <p class="note">
+            AI adoption is moving faster than governance maturity. In regulated environments, the question isn’t “does it work?”
+            It’s “is it controlled, reviewable, explainable enough, and defensible under scrutiny?”
+          </p>
+        </div>
+      </div>
+
       <div class="card">
+        <div class="kicker">How I help</div>
         <ul>
-          <li>AI governance inside sponsor-bank fintech programs</li>
-          <li>Model risk & control frameworks for AI decisioning</li>
-          <li>Human-in-the-loop oversight systems</li>
-          <li>Defensibility in underwriting, fraud, and monitoring use cases</li>
-          <li>Practical AI controls for regulated operators</li>
+          <li>Map AI exposure across decisioning + ops</li>
+          <li>Define practical governance controls</li>
+          <li>Design “defensibility-ready” documentation</li>
+          <li>Build oversight workflows that operators can run</li>
+          <li>Pressure-test vendor + model risk narratives</li>
         </ul>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Why This Matters</h2>
+    <hr />
+
+    <div class="grid2" id="work">
       <div class="card">
-        <p>
-          AI adoption is accelerating faster than governance maturity.
-          In regulated environments, deploying AI without structured oversight creates
-          exposure — not just technical risk, but regulatory and reputational risk.
-        </p>
-        <p>
-          My work centers on designing defensible AI systems before regulators force the issue.
-        </p>
+        <div class="kicker">Current Focus</div>
+        <ul>
+          <li>Sponsor-bank fintech AI governance patterns</li>
+          <li>Model risk controls for AI decisioning (underwriting, fraud, monitoring)</li>
+          <li>LLM usage in compliance/ops (guardrails + accountability)</li>
+          <li>Human-in-the-loop standards that actually hold up</li>
+          <li>Change control + evidence for AI updates</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Work in Progress</div>
+        <ul>
+          <li>AI Defensibility: a practical operator framework</li>
+          <li>Use-case intake + approval checklist</li>
+          <li>Minimum viable model documentation standard</li>
+          <li>AI vendor diligence questions that matter</li>
+          <li>Quarterly oversight cadence (what to review + why)</li>
+        </ul>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Selected Writing & Notes</h2>
-      <div class="card">
-        <ul>
-          <li>What “AI Defensibility” Actually Means</li>
-          <li>Sponsor-Bank Exposure in AI Decisioning</li>
-          <li>Governance Gaps in LLM Deployment</li>
-          <li>Model Updates, Drift, and Accountability</li>
-        </ul>
+    <div class="card" style="margin-top:14px;">
+      <div class="kicker">Contact</div>
+      <p class="note">
+        If you’re deploying AI in a regulated environment and want to pressure-test governance posture and defensibility, reach out.
+      </p>
+      <div class="btnRow" style="margin-top:14px;">
+        <a class="btn primary" href="mailto:chris@bestretreats.co?subject=AI%20Governance%20Intro%20%E2%80%94%20Chris%20Brewer">Email Chris</a>
+        <a class="btn" href="https://www.linkedin.com/in/chris-brewer-ab9b74b3/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
 
     <footer>
-      Independent operator focused on practical AI governance in regulated systems.
+      <div>© <span id="y"></span> Chris Brewer</div>
+      <div>Operator-focused. Confidential conversations. No guarantees.</div>
     </footer>
 
   </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
