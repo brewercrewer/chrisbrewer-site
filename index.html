@@ -3,184 +3,540 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chris Brewer — AI Governance & Defensibility</title>
-  <meta name="description" content="Operator-focused AI governance and defensibility for regulated systems. Practical frameworks, controls, and oversight." />
-
+  <title>Chris Brewer — Compliance, Consumer Protection & Harm Reduction</title>
+  <meta name="description" content="Chris Brewer is Co-Founder of The Retreat Safety Project, Director of Compliance Operations at Bead, and Managing Director of Best Retreats — applying consumer protection standards to the ayahuasca retreat industry." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+ 
   <style>
-    :root { --bg:#0b0f14; --card:#101723; --text:#e8eef7; --muted:#a7b3c4; --line:#223044; --accent:#7aa2ff; }
-    * { box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(1100px 700px at 15% 0%, #152039 0%, var(--bg) 55%),
-        radial-gradient(800px 550px at 92% 30%, #1a2a4a 0%, var(--bg) 60%),
-        var(--bg);
+    :root {
+      --bg: #0c0e0f;
+      --surface: #141618;
+      --surface2: #1a1d1f;
+      --border: #272b2e;
+      --text: #e8e6e1;
+      --muted: #7a7873;
+      --warm: #c8b99a;
+      --accent: #d4a853;
+      --green: #5a8a6a;
+      --green-dim: rgba(90,138,106,0.15);
     }
-    a{ color:inherit; }
-    .wrap{ max-width:980px; margin:0 auto; padding:56px 20px; }
-    .top{
-      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:34px;
+ 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
     }
-    .brand{ font-weight:800; letter-spacing:0.2px; }
-    .chips{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
-    .chip{
-      font-size:12px; color:var(--muted);
-      border:1px solid var(--line);
-      padding:8px 10px;
-      border-radius:999px;
-      white-space:nowrap;
+ 
+    a { color: inherit; text-decoration: none; }
+ 
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
     }
-    .hero{
-      display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap:18px;
-      align-items:start;
+ 
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+      position: relative;
+      z-index: 1;
     }
-    @media (max-width: 880px){ .hero{ grid-template-columns:1fr; } .chips{ justify-content:flex-start; } }
-
-    h1{ font-size:46px; line-height:1.03; margin:0 0 10px; letter-spacing:-0.7px; }
-    .sub{ color:var(--muted); font-size:16px; line-height:1.6; margin:0 0 14px; }
-
-    .card{
-      background:rgba(16,23,35,.72);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-      backdrop-filter: blur(10px);
+ 
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
     }
-    .kicker{
-      font-size:12px; letter-spacing:0.22em; text-transform:uppercase;
-      color:var(--muted); margin-bottom:10px;
+ 
+    .header-left { flex: 1; }
+ 
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 14px;
     }
-    .btnRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      text-decoration:none;
-      font-weight:700;
+ 
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(38px, 6vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 20px;
     }
-    .btn.primary{
-      background:linear-gradient(180deg, rgba(122,162,255,.22), rgba(122,162,255,.08));
-      border-color: rgba(122,162,255,.45);
+ 
+    h1 em {
+      font-style: italic;
+      color: var(--warm);
     }
-    .btn:hover{ transform: translateY(-1px); }
-
-    .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    @media (max-width: 880px){ .grid2{ grid-template-columns:1fr; } }
-
-    ul{ margin:0; padding-left:18px; color:var(--muted); }
-    li{ margin-bottom:8px; }
-
-    hr{ border:0; border-top:1px solid var(--line); margin:26px 0; }
-
-    .note{ color:var(--muted); font-size:13px; line-height:1.5; margin:0; }
-    footer{
-      margin-top:26px;
-      color:var(--muted);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+ 
+    .tagline {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.65;
     }
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+ 
+    .photo-wrap {
+      flex-shrink: 0;
+      width: 140px;
+    }
+ 
+    .photo-wrap img {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      filter: grayscale(20%);
+    }
+ 
+    /* ── ROLES ── */
+    .roles {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin: 28px 0 32px;
+    }
+ 
+    .role {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+ 
+    .role-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+ 
+    .role-dot.active { background: var(--green); }
+ 
+    .role strong { color: var(--text); font-weight: 500; }
+ 
+    /* ── BUTTONS ── */
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+ 
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+ 
+    .btn:hover { border-color: var(--warm); color: var(--warm); transform: translateY(-1px); }
+    .btn.primary { background: var(--green-dim); border-color: var(--green); color: #8abf97; }
+    .btn.primary:hover { background: rgba(90,138,106,0.25); color: #a8d4b4; }
+ 
+    /* ── SECTIONS ── */
+    section { margin-bottom: 52px; }
+ 
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    /* ── FEATURED: BEST RETREATS ── */
+    .featured-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--accent));
+    }
+ 
+    .featured-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+ 
+    .featured-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+ 
+    .featured-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+ 
+    .nonprofit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-dim);
+      border: 1px solid var(--green);
+      color: #8abf97;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+ 
+    .featured-body {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+ 
+    .featured-body strong { color: var(--text); font-weight: 500; }
+ 
+    .featured-stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+ 
+    .stat { }
+    .stat-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--warm);
+    }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+ 
+    /* ── WORK GRID ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+ 
+    @media (max-width: 600px) { .work-grid { grid-template-columns: 1fr; } }
+ 
+    .work-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.15s;
+    }
+ 
+    .work-card:hover { border-color: #3a3f43; }
+ 
+    .work-card-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+ 
+    .work-card-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+ 
+    .work-card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+ 
+    /* ── BACKGROUND ── */
+    .bg-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+ 
+    .bg-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+ 
+    .bg-year {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'DM Serif Display', serif;
+      min-width: 80px;
+      padding-top: 2px;
+    }
+ 
+    .bg-content { flex: 1; }
+    .bg-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .bg-sub { font-size: 13px; color: var(--muted); }
+ 
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+ 
+    .contact-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+ 
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 52px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+    }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      header { flex-direction: column-reverse; }
+      .photo-wrap { width: 80px; }
+      .photo-wrap img { width: 80px; height: 80px; }
+      .featured-header { flex-direction: column; }
+    }
+ 
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.12s; }
+    .fade-in:nth-child(3) { animation-delay: 0.19s; }
+    .fade-in:nth-child(4) { animation-delay: 0.26s; }
+    .fade-in:nth-child(5) { animation-delay: 0.33s; }
   </style>
 </head>
-
+ 
 <body>
   <div class="wrap">
-
-    <div class="top">
-      <div class="brand">Chris Brewer</div>
-      <div class="chips">
-        <div class="chip">AI Governance</div>
-        <div class="chip">Defensibility</div>
-        <div class="chip">Regulated Fintech</div>
-        <div class="chip">Operator-first</div>
+ 
+    <!-- HEADER -->
+    <header class="fade-in">
+      <div class="header-left">
+        <div class="eyebrow">Compliance · Consumer Protection · Harm Reduction</div>
+        <h1>Chris<br><em>Brewer</em></h1>
+ 
+        <div class="roles">
+          <div class="role">
+            <div class="role-dot active"></div>
+            <span><strong>Co-Founder & President</strong> — The Retreat Safety Project, Inc. (501c3)</span>
+          </div>
+          <div class="role">
+            <div class="role-dot active"></div>
+            <span><strong>Director of Compliance Operations</strong> — Bead</span>
+          </div>
+          <div class="role">
+            <div class="role-dot active"></div>
+            <span><strong>Managing Director</strong> — Best Retreats</span>
+          </div>
+          <div class="role">
+            <div class="role-dot"></div>
+            <span><strong>B.S. Anthropology</strong> — Washington University in St. Louis</span>
+          </div>
+        </div>
+ 
+        <p class="tagline">I apply compliance infrastructure and consumer protection frameworks to high-risk environments — in regulated fintech and in the psychedelic retreat industry.</p>
+ 
+        <div class="btn-row">
+          <a class="btn primary" href="https://bestretreats.co" target="_blank" rel="noopener">Best Retreats →</a>
+          <a class="btn" href="mailto:chris@bestretreats.co?subject=Hello">Email Chris</a>
+          <a class="btn" href="https://www.linkedin.com/in/chris-brewer-ab9b74b3/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
-    </div>
-
-   <div class="hero">
-  <div>
-    <div class="kicker">Practical Operator Work</div>
-    <h1>AI Governance & Defensibility</h1>
-    <p class="sub">
-      I work at the intersection of AI systems and regulated financial infrastructure.
-      My focus is practical governance: controls, documentation, oversight, and defensibility — especially where sponsor-bank scrutiny and regulatory expectations matter.
-    </p>
-
-    <div class="btnRow">
-      <a class="btn primary" href="mailto:chris@bestretreats.co?subject=AI%20Governance%20Intro%20%E2%80%94%20Chris%20Brewer">Email Chris</a>
-      <a class="btn" href="#work">What I’m working on</a>
-    </div>
-  </div>
-
-  <div class="card" style="display:flex; justify-content:center; align-items:center;">
-    <img src="pic1.jpg"
-         alt="Chris Brewer"
-         style="width:100%; max-width:220px; border-radius:14px; display:block;">
-  </div>
-</div>
-      <div class="card">
-        <div class="kicker">How I help</div>
-        <ul>
-          <li>Map AI exposure across decisioning + ops</li>
-          <li>Define practical governance controls</li>
-          <li>Design “defensibility-ready” documentation</li>
-          <li>Build oversight workflows that operators can run</li>
-          <li>Pressure-test vendor + model risk narratives</li>
-        </ul>
+ 
+      <div class="photo-wrap">
+        <img src="pic1.jpg" alt="Chris Brewer" />
       </div>
-    </div>
-
-    <hr />
-
-    <div class="grid2" id="work">
-      <div class="card">
-        <div class="kicker">Current Focus</div>
-        <ul>
-          <li>Sponsor-bank fintech AI governance patterns</li>
-          <li>Model risk controls for AI decisioning (underwriting, fraud, monitoring)</li>
-          <li>LLM usage in compliance/ops (guardrails + accountability)</li>
-          <li>Human-in-the-loop standards that actually hold up</li>
-          <li>Change control + evidence for AI updates</li>
-        </ul>
+    </header>
+ 
+    <!-- BEST RETREATS FEATURED -->
+    <section class="fade-in">
+      <div class="section-label">Featured Work</div>
+      <div class="featured-card">
+        <div class="featured-header">
+          <div>
+            <div class="featured-title">Best Retreats & The Retreat Safety Project</div>
+            <div class="featured-subtitle">bestretreats.co · Founded 2021</div>
+          </div>
+          <div class="nonprofit-badge">
+            <span>●</span> 501(c)(3) Nonprofit
+          </div>
+        </div>
+        <p class="featured-body">
+          Best Retreats is an <strong>independent safety intelligence platform</strong> for the ayahuasca retreat industry — no bookings, no operator payments, no incentive to look the other way. Built on the same principles as consumer protection and compliance infrastructure: <strong>screening standards, incident transparency, and accountability for operators</strong> who hold significant power over vulnerable participants.
+          <br><br>
+          The Retreat Safety Project, Inc. is the Missouri-incorporated 501(c)(3) nonprofit behind the platform, focused on harm reduction, facilitator accountability, and honest research in a category where polished marketing regularly outpaces basic safety standards.
+        </p>
+        <div class="featured-stats">
+          <div class="stat">
+            <div class="stat-val">2021</div>
+            <div class="stat-label">Founded</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">501(c)(3)</div>
+            <div class="stat-label">Nonprofit Status</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">0</div>
+            <div class="stat-label">Booking Commissions</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">No bias</div>
+            <div class="stat-label">Independent research</div>
+          </div>
+        </div>
       </div>
-
-      <div class="card">
-        <div class="kicker">Work in Progress</div>
-        <ul>
-          <li>AI Defensibility: a practical operator framework</li>
-          <li>Use-case intake + approval checklist</li>
-          <li>Minimum viable model documentation standard</li>
-          <li>AI vendor diligence questions that matter</li>
-          <li>Quarterly oversight cadence (what to review + why)</li>
-        </ul>
+    </section>
+ 
+    <!-- CURRENT WORK -->
+    <section class="fade-in">
+      <div class="section-label">Current Focus</div>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-card-label">Fintech Compliance</div>
+          <div class="work-card-title">AML & KYC/KYB Program Operations</div>
+          <div class="work-card-desc">Managing compliance operations at Bead, a crypto-enabled fintech payment facilitator sponsored by Lead Bank. Monthly FinCrimes reporting, sanctions screening, and partner risk oversight.</div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-label">AI Governance</div>
+          <div class="work-card-title">Defensibility Frameworks for Regulated Environments</div>
+          <div class="work-card-desc">Practical governance controls, documentation standards, and oversight workflows for AI systems deployed in compliance and financial operations contexts.</div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-label">Harm Reduction</div>
+          <div class="work-card-title">Retreat Safety Research & Publishing</div>
+          <div class="work-card-desc">Editorial oversight of Best Retreats' safety content — operator red flags, psychiatric screening standards, facilitator accountability, and participant risk education.</div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-label">Consumer Protection</div>
+          <div class="work-card-title">Watchdog Infrastructure for High-Risk Wellness</div>
+          <div class="work-card-desc">Applying BBB-style accountability models to the psychedelic retreat industry — incident tracking, accreditation signals, and reputation monitoring free from booking incentives.</div>
+        </div>
       </div>
-    </div>
-
-    <div class="card" style="margin-top:14px;">
-      <div class="kicker">Contact</div>
-      <p class="note">
-        If you’re deploying AI in a regulated environment and want to pressure-test governance posture and defensibility, reach out.
-      </p>
-      <div class="btnRow" style="margin-top:14px;">
-        <a class="btn primary" href="mailto:chris@bestretreats.co?subject=AI%20Governance%20Intro%20%E2%80%94%20Chris%20Brewer">Email Chris</a>
-        <a class="btn" href="https://www.linkedin.com/in/chris-brewer-ab9b74b3/" target="_blank" rel="noopener">LinkedIn</a>
+    </section>
+ 
+    <!-- BACKGROUND -->
+    <section class="fade-in">
+      <div class="section-label">Background</div>
+      <div class="bg-grid">
+        <div class="bg-item">
+          <div class="bg-year">2025 –</div>
+          <div class="bg-content">
+            <div class="bg-title">Director of Compliance Operations, Bead</div>
+            <div class="bg-sub">AML program oversight, FinCrimes reporting, KYC/KYB reviews, Lead Bank partnership compliance</div>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-year">2021 –</div>
+          <div class="bg-content">
+            <div class="bg-title">Co-Founder & President, The Retreat Safety Project / Best Retreats</div>
+            <div class="bg-sub">Built and operates the leading independent safety directory for ayahuasca retreats. Missouri 501(c)(3) incorporated 2026.</div>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-year">2015 – 2019</div>
+          <div class="bg-content">
+            <div class="bg-title">Fraud & Risk Specialist, Square</div>
+            <div class="bg-sub">Transaction fraud analysis, risk mitigation, and pattern investigation across payment infrastructure</div>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-year">2012 – 2015</div>
+          <div class="bg-content">
+            <div class="bg-title">B.S. Anthropology, Washington University in St. Louis</div>
+            <div class="bg-sub">Cultural variation, forensic insight, and behavioral pattern analysis — applied across fraud, compliance, and field research</div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <footer>
-      <div>© <span id="y"></span> Chris Brewer</div>
-      <div>Operator-focused. Confidential conversations. No guarantees.</div>
+    </section>
+ 
+    <!-- CONTACT -->
+    <section class="fade-in">
+      <div class="section-label">Contact</div>
+      <div class="contact-card">
+        <p>Open to conversations about AI governance in regulated environments, compliance infrastructure, or consumer protection work in high-risk wellness categories.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="mailto:chris@bestretreats.co?subject=Hello — chrisbrewer.ai">Email Chris</a>
+          <a class="btn" href="https://www.linkedin.com/in/chris-brewer-ab9b74b3/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://bestretreats.co" target="_blank" rel="noopener">Best Retreats</a>
+        </div>
+      </div>
+    </section>
+ 
+    <footer class="fade-in">
+      <div>© <span id="y"></span> Chris Brewer · Envigado, Colombia</div>
+      <div>Operator-focused. Confidential conversations.</div>
     </footer>
-
+ 
   </div>
-
+ 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
