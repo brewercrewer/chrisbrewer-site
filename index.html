@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chris Brewer — Compliance, Consumer Protection & Harm Reduction</title>
-  <meta name="description" content="Chris Brewer is Co-Founder of The Retreat Safety Project, Director of Compliance Operations at Bead, and Managing Director of Best Retreats — applying consumer protection standards to the ayahuasca retreat industry." />
+  <title>Chris Brewer — Anthropologist, Compliance Professional & Retreat Safety Researcher</title>
+  <meta name="description" content="Chris Brewer is an anthropologist and compliance professional who co-founded The Retreat Safety Project and Best Retreats — applying accountability frameworks to the culturally complex, high-risk world of ayahuasca retreats." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
- 
+
   <style>
     :root {
       --bg: #0c0e0f;
@@ -22,9 +22,9 @@
       --green: #5a8a6a;
       --green-dim: rgba(90,138,106,0.15);
     }
- 
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
@@ -32,9 +32,9 @@
       line-height: 1.6;
       font-size: 16px;
     }
- 
+
     a { color: inherit; text-decoration: none; }
- 
+
     /* ── NOISE TEXTURE ── */
     body::before {
       content: '';
@@ -45,7 +45,7 @@
       z-index: 0;
       opacity: 0.6;
     }
- 
+
     .wrap {
       max-width: 900px;
       margin: 0 auto;
@@ -53,7 +53,7 @@
       position: relative;
       z-index: 1;
     }
- 
+
     /* ── HEADER ── */
     header {
       display: flex;
@@ -64,9 +64,9 @@
       padding-bottom: 48px;
       border-bottom: 1px solid var(--border);
     }
- 
+
     .header-left { flex: 1; }
- 
+
     .eyebrow {
       font-size: 11px;
       letter-spacing: 0.18em;
@@ -75,7 +75,7 @@
       font-weight: 500;
       margin-bottom: 14px;
     }
- 
+
     h1 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(38px, 6vw, 58px);
@@ -84,33 +84,56 @@
       color: var(--text);
       margin-bottom: 20px;
     }
- 
+
     h1 em {
       font-style: italic;
       color: var(--warm);
     }
- 
+
     .tagline {
       font-size: 16px;
       color: var(--muted);
       max-width: 480px;
       line-height: 1.65;
     }
- 
-    .photo-wrap {
+
+    /* ── PHOTO COLLAGE ── */
+    .photo-collage {
+      position: relative;
+      width: 240px;
+      height: 320px;
       flex-shrink: 0;
-      width: 140px;
     }
- 
-    .photo-wrap img {
-      width: 140px;
-      height: 140px;
-      border-radius: 12px;
-      object-fit: cover;
+
+    .collage-img {
+      position: absolute;
+      border-radius: 10px;
+      overflow: hidden;
       border: 1px solid var(--border);
-      filter: grayscale(20%);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
     }
- 
+
+    .collage-img:hover {
+      transform: scale(1.06) rotate(0deg) !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+      z-index: 10 !important;
+    }
+
+    .collage-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(10%);
+    }
+
+    .img1 { width: 148px; height: 170px; top: 18px; left: 6px; transform: rotate(-2deg); z-index: 4; }
+    .img2 { width: 118px; height: 138px; top: 0px; left: 118px; transform: rotate(2.5deg); z-index: 3; }
+    .img3 { width: 112px; height: 128px; top: 158px; left: 100px; transform: rotate(-1.5deg); z-index: 2; }
+    .img4 { width: 108px; height: 124px; top: 172px; left: 2px; transform: rotate(2deg); z-index: 1; }
+
     /* ── ROLES ── */
     .roles {
       display: flex;
@@ -118,7 +141,7 @@
       gap: 3px;
       margin: 28px 0 32px;
     }
- 
+
     .role {
       display: flex;
       align-items: center;
@@ -126,7 +149,7 @@
       font-size: 14px;
       color: var(--muted);
     }
- 
+
     .role-dot {
       width: 6px;
       height: 6px;
@@ -134,14 +157,14 @@
       background: var(--border);
       flex-shrink: 0;
     }
- 
+
     .role-dot.active { background: var(--green); }
- 
+
     .role strong { color: var(--text); font-weight: 500; }
- 
+
     /* ── BUTTONS ── */
     .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
- 
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -156,14 +179,14 @@
       cursor: pointer;
       transition: all 0.15s;
     }
- 
+
     .btn:hover { border-color: var(--warm); color: var(--warm); transform: translateY(-1px); }
     .btn.primary { background: var(--green-dim); border-color: var(--green); color: #8abf97; }
     .btn.primary:hover { background: rgba(90,138,106,0.25); color: #a8d4b4; }
- 
+
     /* ── SECTIONS ── */
     section { margin-bottom: 52px; }
- 
+
     .section-label {
       font-size: 11px;
       letter-spacing: 0.18em;
@@ -174,7 +197,7 @@
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
     }
- 
+
     /* ── FEATURED: BEST RETREATS ── */
     .featured-card {
       background: var(--surface);
@@ -184,7 +207,7 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     .featured-card::before {
       content: '';
       position: absolute;
@@ -192,7 +215,7 @@
       height: 2px;
       background: linear-gradient(90deg, var(--green), var(--accent));
     }
- 
+
     .featured-header {
       display: flex;
       align-items: flex-start;
@@ -200,19 +223,19 @@
       gap: 16px;
       margin-bottom: 16px;
     }
- 
+
     .featured-title {
       font-family: 'DM Serif Display', serif;
       font-size: 22px;
       color: var(--text);
       margin-bottom: 4px;
     }
- 
+
     .featured-subtitle {
       font-size: 13px;
       color: var(--muted);
     }
- 
+
     .nonprofit-badge {
       display: inline-flex;
       align-items: center;
@@ -229,16 +252,16 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
- 
+
     .featured-body {
       font-size: 15px;
       color: var(--muted);
       line-height: 1.7;
       margin-bottom: 20px;
     }
- 
+
     .featured-body strong { color: var(--text); font-weight: 500; }
- 
+
     .featured-stats {
       display: flex;
       gap: 24px;
@@ -246,7 +269,7 @@
       padding-top: 20px;
       border-top: 1px solid var(--border);
     }
- 
+
     .stat { }
     .stat-val {
       font-family: 'DM Serif Display', serif;
@@ -254,16 +277,16 @@
       color: var(--warm);
     }
     .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
- 
+
     /* ── WORK GRID ── */
     .work-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
- 
+
     @media (max-width: 600px) { .work-grid { grid-template-columns: 1fr; } }
- 
+
     .work-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -271,9 +294,9 @@
       padding: 20px;
       transition: border-color 0.15s;
     }
- 
+
     .work-card:hover { border-color: #3a3f43; }
- 
+
     .work-card-label {
       font-size: 11px;
       letter-spacing: 0.14em;
@@ -281,33 +304,33 @@
       color: var(--muted);
       margin-bottom: 8px;
     }
- 
+
     .work-card-title {
       font-size: 15px;
       font-weight: 500;
       color: var(--text);
       margin-bottom: 6px;
     }
- 
+
     .work-card-desc {
       font-size: 13px;
       color: var(--muted);
       line-height: 1.6;
     }
- 
+
     /* ── BACKGROUND ── */
     .bg-grid {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
- 
+
     .bg-item {
       display: flex;
       gap: 20px;
       align-items: flex-start;
     }
- 
+
     .bg-year {
       font-size: 12px;
       color: var(--muted);
@@ -315,11 +338,11 @@
       min-width: 80px;
       padding-top: 2px;
     }
- 
+
     .bg-content { flex: 1; }
     .bg-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
     .bg-sub { font-size: 13px; color: var(--muted); }
- 
+
     /* ── CONTACT ── */
     .contact-card {
       background: var(--surface);
@@ -327,14 +350,14 @@
       border-radius: 14px;
       padding: 28px;
     }
- 
+
     .contact-card p {
       font-size: 15px;
       color: var(--muted);
       line-height: 1.7;
       margin-bottom: 20px;
     }
- 
+
     /* ── FOOTER ── */
     footer {
       margin-top: 52px;
@@ -348,15 +371,18 @@
       font-size: 12px;
       color: var(--muted);
     }
- 
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       header { flex-direction: column-reverse; }
-      .photo-wrap { width: 80px; }
-      .photo-wrap img { width: 80px; height: 80px; }
+      .photo-collage { width: 170px; height: 230px; }
+      .img1 { width: 105px; height: 122px; top: 12px; left: 4px; }
+      .img2 { width: 84px; height: 98px; top: 0; left: 84px; }
+      .img3 { width: 80px; height: 92px; top: 114px; left: 72px; }
+      .img4 { width: 77px; height: 88px; top: 124px; left: 2px; }
       .featured-header { flex-direction: column; }
     }
- 
+
     /* ── FADE IN ── */
     .fade-in {
       opacity: 0;
@@ -373,16 +399,16 @@
     .fade-in:nth-child(5) { animation-delay: 0.33s; }
   </style>
 </head>
- 
+
 <body>
   <div class="wrap">
- 
+
     <!-- HEADER -->
     <header class="fade-in">
       <div class="header-left">
-        <div class="eyebrow">Compliance · Consumer Protection · Harm Reduction</div>
+        <div class="eyebrow">Anthropology · Compliance · Harm Reduction</div>
         <h1>Chris<br><em>Brewer</em></h1>
- 
+
         <div class="roles">
           <div class="role">
             <div class="role-dot active"></div>
@@ -401,21 +427,32 @@
             <span><strong>B.S. Anthropology</strong> — Washington University in St. Louis</span>
           </div>
         </div>
- 
-        <p class="tagline">I apply compliance infrastructure and consumer protection frameworks to high-risk environments — in regulated fintech and in the psychedelic retreat industry.</p>
- 
+
+        <p class="tagline">I'm an anthropologist who ended up in compliance. Both fields are about understanding how systems of power affect vulnerable people — and what happens when accountability breaks down. Best Retreats exists at that intersection.</p>
+
         <div class="btn-row">
           <a class="btn primary" href="https://bestretreats.co" target="_blank" rel="noopener">Best Retreats →</a>
-          <a class="btn" href="mailto:chris@bestretreats.co?subject=Hello">Email Chris</a>
+          <a class="btn" href="/cdn-cgi/l/email-protection#0a69627863794a686f797e786f7e786f6b7e7924696535797f68606f697e37426f666665">Email Chris</a>
           <a class="btn" href="https://www.linkedin.com/in/chris-brewer-ab9b74b3/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
- 
-      <div class="photo-wrap">
-        <img src="pic1.jpg" alt="Chris Brewer" />
+
+      <div class="photo-collage">
+        <div class="collage-img img1">
+          <img src="pic2.jpg" alt="Chris Brewer" />
+        </div>
+        <div class="collage-img img2">
+          <img src="Screen_Shot_2024-10-07_at_22_49_15.png" alt="Chris Brewer, Colombia" />
+        </div>
+        <div class="collage-img img3">
+          <img src="pic1.jpg" alt="Chris Brewer" />
+        </div>
+        <div class="collage-img img4">
+          <img src="Screen_Shot_2024-11-11_at_21_52_17.png" alt="Chris Brewer, fieldwork" />
+        </div>
       </div>
     </header>
- 
+
     <!-- BEST RETREATS FEATURED -->
     <section class="fade-in">
       <div class="section-label">Featured Work</div>
@@ -431,6 +468,8 @@
         </div>
         <p class="featured-body">
           Best Retreats is an <strong>independent safety intelligence platform</strong> for the ayahuasca retreat industry — no bookings, no operator payments, no incentive to look the other way. Built on the same principles as consumer protection and compliance infrastructure: <strong>screening standards, incident transparency, and accountability for operators</strong> who hold significant power over vulnerable participants.
+          <br><br>
+          The anthropological lens matters here. Ayahuasca ceremonies exist within complex cultural systems — indigenous traditions, power hierarchies, altered states, and deep participant vulnerability. Understanding those dynamics isn't background noise; it's the core of what makes retreat safety research credible. Most directories treat retreats like hotels. Best Retreats treats them like the high-stakes, culturally complex environments they actually are.
           <br><br>
           The Retreat Safety Project, Inc. is the Missouri-incorporated 501(c)(3) nonprofit behind the platform, focused on harm reduction, facilitator accountability, and honest research in a category where polished marketing regularly outpaces basic safety standards.
         </p>
@@ -454,7 +493,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- CURRENT WORK -->
     <section class="fade-in">
       <div class="section-label">Current Focus</div>
@@ -481,7 +520,7 @@
         </div>
       </div>
     </section>
- 
+
     <!-- BACKGROUND -->
     <section class="fade-in">
       <div class="section-label">Background</div>
@@ -511,34 +550,32 @@
           <div class="bg-year">2012 – 2015</div>
           <div class="bg-content">
             <div class="bg-title">B.S. Anthropology, Washington University in St. Louis</div>
-            <div class="bg-sub">Cultural variation, forensic insight, and behavioral pattern analysis — applied across fraud, compliance, and field research</div>
+            <div class="bg-sub">Cultural systems, ritual practice, power dynamics, and forensic analysis — the foundational lens applied to fraud investigation at Square and, later, to understanding why accountability failures in ayahuasca retreat settings follow predictable structural patterns</div>
+          </div>
+        </div>
+        <div class="bg-item">
+          <div class="bg-year">2021 –</div>
+          <div class="bg-content">
+            <div class="bg-title">Fieldwork & Research, Colombia & South America</div>
+            <div class="bg-sub">Living and working in Envigado, Colombia — ongoing anthropological engagement with the communities, practices, and operators that Best Retreats covers. First-hand cultural context that no remote researcher can replicate.</div>
           </div>
         </div>
       </div>
     </section>
- 
+
     <!-- CONTACT -->
     <section class="fade-in">
       <div class="section-label">Contact</div>
       <div class="contact-card">
         <p>Open to conversations about AI governance in regulated environments, compliance infrastructure, or consumer protection work in high-risk wellness categories.</p>
         <div class="btn-row">
-          <a class="btn primary" href="mailto:chris@bestretreats.co?subject=Hello — chrisbrewer.ai">Email Chris</a>
+          <a class="btn primary" href="/cdn-cgi/l/email-protection#47242f352e3407252234333522333522263334692428783432252d2224337a0f222b2b2867a5c7d367242f352e3425352230223569262e">Email Chris</a>
           <a class="btn" href="https://www.linkedin.com/in/chris-brewer-ab9b74b3/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="https://bestretreats.co" target="_blank" rel="noopener">Best Retreats</a>
         </div>
       </div>
     </section>
- 
+
     <footer class="fade-in">
       <div>© <span id="y"></span> Chris Brewer · Envigado, Colombia</div>
       <div>Operator-focused. Confidential conversations.</div>
-    </footer>
- 
-  </div>
- 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
